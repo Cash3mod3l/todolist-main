@@ -7,42 +7,35 @@ function Component() {
 	let newTextSpan = document.createElement("span");
 	let divComponent = document.createElement("div");
 
-	function AddBlockTask() {
-		divComponent.classList.add("newComponent");
-	}
+	divComponent.classList.add("newComponent");
 
 	newTextSpan.innerText = inputText.value;
 	if (inputText.value === "") {
 		return;
 	}
 	inputText.value = "";
-	content.appendChild(divComponent);
+
 	divComponent.appendChild(newTextSpan);
-	AddBlockTask();
+	content.appendChild(divComponent);
 
 	let btnComponent = document.createElement("button");
 	let textButton = document.createElement("span");
 	const text = document.createTextNode("Удалить");
 
-	function AddButton() {
-		btnComponent.classList.add("btnNewComponent");
-		textButton.classList.add("spanText");
-	}
+	btnComponent.classList.add("btnNewComponent");
+	textButton.classList.add("spanText");
+
 	textButton.appendChild(text);
 	btnComponent.appendChild(textButton);
 	divComponent.appendChild(btnComponent);
-	AddButton();
 
-	function ClearTask() {
-		btnComponent.onclick = function RemoveComponent() {
-			divComponent.remove();
-			btnComponent.remove();
-			textButton.remove();
-			text.remove();
-			newTextSpan.remove();
-		};
-	}
-	ClearTask();
+	btnComponent.onclick = function RemoveComponent() {
+		divComponent.remove();
+		btnComponent.remove();
+		textButton.remove();
+		text.remove();
+		newTextSpan.remove();
+	};
 }
 
 button.onclick = function () {
