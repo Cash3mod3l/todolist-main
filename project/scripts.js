@@ -3,37 +3,47 @@ let inputText = document.querySelector("#text");
 const button = document.querySelector("#btn");
 let key = 1;
 
-function AddComponent() {
+function Component() {
 	let textSpan = document.createElement("span");
 	let divComponent = document.createElement("div");
-	divComponent.classList.add("newComponent");
 
-	textSpan.innerText = inputText.value;
-	if (inputText.value === "") {
-		return;
+	function AddBlockTask() {
+		divComponent.classList.add("newComponent");
+		textSpan.innerText = inputText.value;
+		if (inputText.value === "") {
+			return;
+		}
+		inputText.value = "";
 	}
-	inputText.value = "";
 	content.appendChild(divComponent);
 	divComponent.appendChild(textSpan);
+	AddBlockTask();
 
 	let btnComponent = document.createElement("button");
 	let textButton = document.createElement("span");
 	const text = document.createTextNode("Удалить");
-	btnComponent.classList.add("btnNewComponent");
-	textButton.classList.add("spanText");
+
+	function AddButton() {
+		btnComponent.classList.add("btnNewComponent");
+		textButton.classList.add("spanText");
+	}
 	textButton.appendChild(text);
 	btnComponent.appendChild(textButton);
 	divComponent.appendChild(btnComponent);
+	AddButton();
 
-	btnComponent.onclick = function RemoveComponent() {
-		divComponent.remove();
-		btnComponent.remove();
-		textButton.remove();
-		text.remove();
-		textSpan.remove();
-	};
+	function ClearTask() {
+		btnComponent.onclick = function RemoveComponent() {
+			divComponent.remove();
+			btnComponent.remove();
+			textButton.remove();
+			text.remove();
+			textSpan.remove();
+		};
+	}
+	ClearTask();
 }
 
 button.onclick = function () {
-	AddComponent();
+	Component();
 };
