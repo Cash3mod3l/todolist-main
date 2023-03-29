@@ -39,7 +39,7 @@ function Component() {
 			btnComponent.remove();
 			textButton.remove();
 			text.remove();
-			textSpan.remove();
+			newTextSpan.remove();
 		};
 	}
 	ClearTask();
