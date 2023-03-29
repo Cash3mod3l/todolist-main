@@ -9,12 +9,13 @@ function Component() {
 
 	function AddBlockTask() {
 		divComponent.classList.add("newComponent");
-		newTextSpan.innerText = inputText.value;
-		if (inputText.value === "") {
-			return;
-		}
-		inputText.value = "";
 	}
+
+	newTextSpan.innerText = inputText.value;
+	if (inputText.value === "") {
+		return;
+	}
+	inputText.value = "";
 	content.appendChild(divComponent);
 	divComponent.appendChild(newTextSpan);
 	AddBlockTask();
