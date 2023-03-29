@@ -4,19 +4,19 @@ const button = document.querySelector("#btn");
 let key = 1;
 
 function Component() {
-	let textSpan = document.createElement("span");
+	let newTextSpan = document.createElement("span");
 	let divComponent = document.createElement("div");
 
 	function AddBlockTask() {
 		divComponent.classList.add("newComponent");
-		textSpan.innerText = inputText.value;
+		newTextSpan.innerText = inputText.value;
 		if (inputText.value === "") {
 			return;
 		}
 		inputText.value = "";
 	}
 	content.appendChild(divComponent);
-	divComponent.appendChild(textSpan);
+	divComponent.appendChild(newTextSpan);
 	AddBlockTask();
 
 	let btnComponent = document.createElement("button");
