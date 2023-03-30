@@ -13,7 +13,7 @@ function NewTask() {
 	newTextSpan.classList.add("newTextSpan");
 
 	newTextSpan.innerText = inputText.value;
-	if (inputText.value === "") {
+	if (!inputText.value) {
 		return;
 	}
 

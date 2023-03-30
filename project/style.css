@@ -68,15 +68,15 @@ body {
 
 .newComponent {
 	border: 1px solid #ccc9c9;
-	width: 95%;
+	width: 40%;
 	height: 40px;
 	background-color: #dad9d9;
 	box-shadow: 0 0 3px 0 #d0cccc;
 	transform: translateY(0);
 	transition: 0.2s;
 	color: black;
-	padding: 0 30px;
-	margin-top: 5px;
+	padding: 0px 0 0 30px;
+	margin: 10px 30%;
 	border-radius: 3px;
 	display: flex;
 	overflow: hidden;
