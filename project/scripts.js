@@ -27,7 +27,7 @@ function NewTask() {
 	const textButton = document.createElement("span");
 	const deleteText = document.createTextNode("Удалить");
 
-	deleteBtn.classList.add("btnNewComponent");
+	deleteBtn.classList.add("btnRed");
 	textButton.classList.add("spanText");
 
 	textButton.appendChild(deleteText);
@@ -39,7 +39,7 @@ function NewTask() {
 	const textButtonRedact = document.createElement("span");
 
 	textButtonRedact.classList.add("spanText");
-	redactionBtn.classList.add("btnNewComponent");
+	redactionBtn.classList.add("btnGreen");
 
 	textButtonRedact.appendChild(redactText);
 	redactionBtn.appendChild(textButtonRedact);
@@ -55,11 +55,19 @@ function NewTask() {
 	checkBox.onchange = function () {
 		if (checkBox.checked) {
 			divComponent.style.backgroundColor = "#31c731";
-			buttonBlock.style.visibility = "hidden";
+			buttonBlock.style.opacity = "0";
+			redactionBtn.disabled = true;
+			deleteBtn.disabled = true;
+			redactionBtn.style.cursor = "auto";
+			deleteBtn.style.cursor = "auto";
 			divComponent.style.transition = "0.2s";
 		} else {
 			divComponent.style.backgroundColor = "#dad9d9";
-			buttonBlock.style.visibility = "visible";
+			buttonBlock.style.opacity = "1";
+			redactionBtn.disabled = false;
+			deleteBtn.disabled = false;
+			redactionBtn.style.cursor = "pointer";
+			deleteBtn.style.cursor = "pointer";
 			divComponent.style.transition = "0.3s";
 		}
 	};
