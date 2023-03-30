@@ -68,19 +68,22 @@ body {
 
 .newComponent {
 	border: 1px solid #ccc9c9;
-	width: 100%;
+	width: 95%;
 	height: 40px;
-	background-color: #afaeae;
+	background-color: #dad9d9;
+	box-shadow: 0 0 3px 0 #d0cccc;
+	transform: translateY(0);
+	transition: 0.2s;
 	color: black;
-	padding: 0 5px;
+	padding: 0 30px;
 	margin-top: 5px;
 	border-radius: 3px;
 	display: flex;
-	justify-content: space-between;
+	overflow: hidden;
 }
 
 .btnNewComponent {
-	padding: 5px;
+	padding: 6px;
 	border-radius: 3px;
 	border: 1px solid #ccc9c9;
 	cursor: pointer;
@@ -88,7 +91,9 @@ body {
 	outline: none;
 	text-decoration: none;
 	overflow: hidden;
-	display: flex;
+	margin: 0 5px;
+	display: grid;
+	justify-content: center;
 	align-items: center;
 }
 
@@ -96,7 +101,7 @@ body {
 	content: "";
 	top: 0;
 	left: 0;
-	background-color: #5e5ed9;
+	background-color: #dbdbdf;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -116,4 +121,23 @@ body {
 
 .spanText {
 	position: relative;
+}
+
+.newTextSpan {
+	padding: 5px;
+}
+
+.checkBox {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 20%;
+	left: 0;
+	margin: 0 5px;
+}
+
+.buttonBlock {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
 }
