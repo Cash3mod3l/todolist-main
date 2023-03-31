@@ -101,23 +101,7 @@ body {
 	display: grid;
 	justify-content: center;
 	align-items: center;
-}
-
-.btnGreen::before {
-	content: "";
-	top: 0;
-	left: 0;
-	background-color: #3ee91a;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	transform: translateX(-101%);
-	border-radius: 1px;
-	transition: 0.2s;
-}
-
-.btnGreen:hover::before {
-	transform: translateX(0);
+	background-color: #5eeb40;
 }
 
 .btnGreen:active {
@@ -139,23 +123,7 @@ body {
 	display: grid;
 	justify-content: center;
 	align-items: center;
-}
-
-.btnRed::before {
-	content: "";
-	top: 0;
-	right: 0;
-	background-color: #e9511a;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	transform: translateX(100%);
-	border-radius: 1px;
-	transition: 0.2s;
-}
-
-.btnRed:hover::before {
-	transform: translateX(0);
+	background-color: #eb6534;
 }
 
 .btnRed:active {

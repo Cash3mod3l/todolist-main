@@ -21,7 +21,6 @@ function NewTask() {
 
 	divComponent.appendChild(newTextSpan);
 	divComponent.appendChild(buttonBlock);
-	content.appendChild(divComponent);
 
 	const deleteBtn = document.createElement("button");
 	const textButton = document.createElement("span");
@@ -52,7 +51,7 @@ function NewTask() {
 
 	divComponent.appendChild(checkBox);
 
-	checkBox.onchange = function () {
+	checkBox.onchange = function Check() {
 		if (checkBox.checked) {
 			divComponent.style.backgroundColor = "#31c731";
 			buttonBlock.style.opacity = "0";
@@ -72,8 +71,16 @@ function NewTask() {
 		}
 	};
 
+	let div = content.appendChild(divComponent);
+	localStorage.setItem(key, JSON.stringify(div.innerText));
+	key++;
+
+	console.log(JSON.parse(localStorage.getItem(key, div)));
+
 	deleteBtn.onclick = function Remove() {
 		divComponent.remove();
+		key--;
+		localStorage.removeItem(key, div);
 	};
 }
 
