@@ -52,35 +52,47 @@ function NewTask() {
 	divComponent.appendChild(checkBox);
 
 	checkBox.onchange = function Check() {
-		if (checkBox.checked) {
-			divComponent.style.backgroundColor = "#31c731";
-			buttonBlock.style.opacity = "0";
-			redactionBtn.disabled = true;
-			deleteBtn.disabled = true;
-			redactionBtn.style.cursor = "auto";
-			deleteBtn.style.cursor = "auto";
-			divComponent.style.transition = "0.2s";
-		} else {
-			divComponent.style.backgroundColor = "#dad9d9";
-			buttonBlock.style.opacity = "1";
-			redactionBtn.disabled = false;
-			deleteBtn.disabled = false;
-			redactionBtn.style.cursor = "pointer";
-			deleteBtn.style.cursor = "pointer";
-			divComponent.style.transition = "0.3s";
-		}
+		divComponent.classList.toggle("complete");
 	};
 
 	let div = content.appendChild(divComponent);
 	localStorage.setItem(key, JSON.stringify(div.innerText));
-	key++;
+	div.dataset.key = key;
 
-	console.log(JSON.parse(localStorage.getItem(key, div)));
+	JSON.parse(localStorage.getItem(key));
+
+	redactionBtn.onclick = function () {
+		if (newTextSpan === "") {
+			return;
+		}
+
+		const input = document.createElement("input");
+		input.value = newTextSpan.innerText;
+		newTextSpan.innerText = "";
+		newTextSpan.appendChild(input);
+		buttonBlock.classList.toggle("redaction");
+
+		input.addEventListener("blur", function () {
+			buttonBlock.classList.toggle("notRedaction");
+			if (!input.value) {
+				return;
+			}
+
+			newTextSpan.innerText = this.value;
+
+			localStorage.setItem(
+				div.closest(".newComponent").dataset.key,
+				JSON.stringify(div.innerText)
+			);
+		});
+	};
+
+	key++;
 
 	deleteBtn.onclick = function Remove() {
 		divComponent.remove();
-		key--;
-		localStorage.removeItem(key, div);
+		const btnKey = this.closest(".newComponent").dataset.key;
+		localStorage.removeItem(btnKey);
 	};
 }
 
