@@ -186,3 +186,13 @@ body {
 	cursor: pointer;
 	display: flex;
 }
+
+.complete {
+	background-color: green;
+}
+
+.complete .buttonBlock {
+	opacity: 1;
+	cursor: auto;
+	display: none;
+}
