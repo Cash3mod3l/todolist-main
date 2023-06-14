@@ -1,4 +1,4 @@
 .idea
 .gittattributes
-.vs
+.vscode/
 .tsconfig.json
