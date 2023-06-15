@@ -5,12 +5,15 @@ function clickDeleteTask(): void {
 }
 
 function clickRedaction(): void {
+    const taskBlock: HTMLDivElement | null = document.querySelector(".task-block");
     const btnBlock: HTMLDivElement | null = document.querySelector(".btn-block");
     const taskText: HTMLSpanElement | null = document.querySelector(".text-task");
     const input: HTMLInputElement = document.createElement("input");
 
+    input.classList.add("redaction-input");
+
     input.addEventListener("blur", function () {
-        if (btnBlock) {
+        if (btnBlock && taskBlock) {
             btnBlock.style.visibility = "visible";
         }
 
@@ -26,16 +29,18 @@ function clickRedaction(): void {
     });
 
     input.addEventListener("focus", function () {
-        if (btnBlock) {
+        if (btnBlock && taskBlock) {
             btnBlock.style.visibility = "hidden";
         }
     });
 
     if (taskText && btnBlock) {
+        taskText.innerText = "";
         taskText.appendChild(input);
         input.focus();
     }
 }
+
 
 
 

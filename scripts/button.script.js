@@ -3,11 +3,13 @@ function clickDeleteTask() {
     task === null || task === void 0 ? void 0 : task.remove();
 }
 function clickRedaction() {
+    var taskBlock = document.querySelector(".task-block");
     var btnBlock = document.querySelector(".btn-block");
     var taskText = document.querySelector(".text-task");
     var input = document.createElement("input");
+    input.classList.add("redaction-input");
     input.addEventListener("blur", function () {
-        if (btnBlock) {
+        if (btnBlock && taskBlock) {
             btnBlock.style.visibility = "visible";
         }
         if (input.value.trim() !== "") {
@@ -20,11 +22,12 @@ function clickRedaction() {
         }
     });
     input.addEventListener("focus", function () {
-        if (btnBlock) {
+        if (btnBlock && taskBlock) {
             btnBlock.style.visibility = "hidden";
         }
     });
     if (taskText && btnBlock) {
+        taskText.innerText = ""; // Удаление содержимого taskText
         taskText.appendChild(input);
         input.focus();
     }
