@@ -4,7 +4,7 @@ const body: HTMLBodyElement | null = document.querySelector("body");
 const notifBlock: HTMLDivElement | null = document.createElement("div");
 notifBlock.classList.add("notification");
 
-function notificationCall() {
+function notificationCall(): void {
     if (inText?.value.trim().length === 0){
         if(notifBlock) {
             notifBlock.innerText = "Заполните поле";
